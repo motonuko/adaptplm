@@ -24,4 +24,5 @@ dependencies:
   - pip:
       - python-dotenv==1.0.1
       - suds-py3==1.4.5.0  # for pd.read_pickle
+      - -e .
       # - umap-learn
