@@ -3,7 +3,7 @@ import time
 
 import requests
 
-from enzrxnpred2.core.default_path import DefaultPath
+from adaptplm.core.default_path import DefaultPath
 
 input_file = DefaultPath().build / 'kegg' / 'kegg_mol_ids_for_esp_fine_tuning.txt'
 # input_file = DefaultPath().build / 'kegg' / 'sample_for_test.txt'

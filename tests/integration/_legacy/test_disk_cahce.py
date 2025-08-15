@@ -2,8 +2,8 @@ import os
 import shutil
 import unittest
 
-from enzrxnpred2._legacy.disk_cache_util import disk_cache
-from enzrxnpred2.utils.data_path import DataPath
+from adaptplm._legacy.disk_cache_util import disk_cache
+from adaptplm.utils.data_path import DataPath
 
 cache_dir = DataPath().test_data_dir.joinpath("disk_cache")
 

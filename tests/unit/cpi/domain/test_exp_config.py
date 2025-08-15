@@ -1,10 +1,10 @@
 import unittest
 
-from enzrxnpred2.core.constants import ESM2_T6_8M_UR50D
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
-from enzrxnpred2.downstream.cpi.domain.exp_config import construct_optim_param_obj, ExpConfig, ProteinFeatConfig, \
+from adaptplm.core.constants import ESM2_T6_8M_UR50D
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
+from adaptplm.downstream.cpi.domain.exp_config import construct_optim_param_obj, ExpConfig, ProteinFeatConfig, \
     MoleculeFeatConfig
-from enzrxnpred2.downstream.cpi.domain.protein_lm_embedding import AveragePoolEmbedding
+from adaptplm.downstream.cpi.domain.protein_lm_embedding import AveragePoolEmbedding
 
 
 class ExpConfigTestCase(unittest.TestCase):

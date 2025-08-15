@@ -5,12 +5,12 @@ from typing import List, Optional
 
 import pandas as pd
 
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
-from enzrxnpred2.data.esp_datasource import load_esp_df
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource, \
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.data.esp_datasource import load_esp_df
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource, \
     EnzActivityScreeningDataset
-from enzrxnpred2.data.turnup_datasource import load_kcat_df
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.data.turnup_datasource import load_kcat_df
+from adaptplm.extension.bio_ext import calculate_crc64
 
 KEY_SEQ_NAME = 'seq_name'
 KEY_SEQ = 'sequence'

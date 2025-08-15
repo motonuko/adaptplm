@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 from typing import Dict, Any, List
 
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
-from enzrxnpred2.downstream.cpi.domain.exp_config import ProteinFeatConfig, MoleculeFeatConfig, OptimParams, \
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
+from adaptplm.downstream.cpi.domain.exp_config import ProteinFeatConfig, MoleculeFeatConfig, OptimParams, \
     construct_optim_param_obj, ExpConfig
-from enzrxnpred2.downstream.cpi.domain.generate_seeds import generate_nested_cv_seeds
+from adaptplm.downstream.cpi.domain.generate_seeds import generate_nested_cv_seeds
 
 
 @dataclass(frozen=True)

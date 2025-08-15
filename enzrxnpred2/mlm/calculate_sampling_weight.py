@@ -2,8 +2,8 @@ from typing import List
 
 import pandas as pd
 
-from enzrxnpred2.data.cd_hit_result_datasource import CdHitResultDatasource
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.data.cd_hit_result_datasource import CdHitResultDatasource
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 def calculate_sampling_weight(sequences: List[str], cd_hit_result: CdHitResultDatasource):

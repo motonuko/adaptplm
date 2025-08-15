@@ -4,13 +4,13 @@ from typing import List
 
 import click
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.core.package_version import get_package_major_version
-from enzrxnpred2.downstream.bindingsite.extract_attention import extract_attention_order_per_head
-from enzrxnpred2.downstream.common.compute_sentence_embedding import compute_sentence_embedding
-from enzrxnpred2.downstream.common.compute_sentence_embedding2 import compute_sentence_embedding2
-from enzrxnpred2.downstream.cpi.nested_cv import run_nested_cv_on_enz_activity_cls
-from enzrxnpred2.downstream.embedding.compute_silhauette_score import compute_clustering_scores
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.core.package_version import get_package_major_version
+from adaptplm.downstream.bindingsite.extract_attention import extract_attention_order_per_head
+from adaptplm.downstream.common.compute_sentence_embedding import compute_sentence_embedding
+from adaptplm.downstream.common.compute_sentence_embedding2 import compute_sentence_embedding2
+from adaptplm.downstream.cpi.nested_cv import run_nested_cv_on_enz_activity_cls
+from adaptplm.downstream.embedding.compute_silhauette_score import compute_clustering_scores
 
 
 @click.command()

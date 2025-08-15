@@ -9,7 +9,7 @@ env_path = os.path.join(os.getcwd(), '.env')
 load_dotenv(env_path)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-from enzrxnpred2.cli.commands.mlm import train_seq_rxn_encoder_with_mlm_cli, build_vocab_enzsrp_full_cli
+from adaptplm.cli.commands.mlm import train_seq_rxn_encoder_with_mlm_cli, build_vocab_enzsrp_full_cli
 
 
 @click.group()

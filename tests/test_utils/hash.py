@@ -2,7 +2,7 @@ import hashlib
 import json
 from unittest import TestCase
 
-from enzrxnpred2.core.default_path import DefaultPath
+from adaptplm.core.default_path import DefaultPath
 
 
 def calculate_file_hash(file_path):

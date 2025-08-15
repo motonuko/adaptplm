@@ -1,9 +1,9 @@
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource, \
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource, \
     EnzActivityScreeningDataset
-from enzrxnpred2.extension.bio_ext import calculate_crc64
-from enzrxnpred2.preprocess.cdhit2.check_overlap2 import filter_out_overlap_sequences
-from enzrxnpred2.preprocess.cdhit2.create_cdhit_input import CPI_CDHIT_DATASETS, CDHitTargetDataset
+from adaptplm.extension.bio_ext import calculate_crc64
+from adaptplm.preprocess.cdhit2.check_overlap2 import filter_out_overlap_sequences
+from adaptplm.preprocess.cdhit2.create_cdhit_input import CPI_CDHIT_DATASETS, CDHitTargetDataset
 
 mapping = {
     CDHitTargetDataset.DUF: EnzActivityScreeningDataset.DUF,

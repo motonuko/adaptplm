@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.domain.regex_tokenizer import MultipleSmilesTokenizer
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.domain.regex_tokenizer import MultipleSmilesTokenizer
 
 
 def main():

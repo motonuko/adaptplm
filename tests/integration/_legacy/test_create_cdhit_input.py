@@ -1,8 +1,8 @@
 # import unittest
 #
-# from enzrxnpred2.app.preprocess.enzseqrxn.cd_hit_utils import create_cd_hit_input, \
+# from adaptplm.app.preprocess.enzseqrxn.cd_hit_utils import create_cd_hit_input, \
 #     parse_cd_hit_result_and_find_dense_screen, find_sequences_similar_to_holdout_seqs
-# from enzrxnpred2.utils.data_path import DataPath
+# from adaptplm.utils.data_path import DataPath
 # from test.test_utils.hash import calculate_file_hash, json_to_hash
 #
 #

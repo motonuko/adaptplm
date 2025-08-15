@@ -4,8 +4,8 @@ import torch
 from accelerate import Accelerator
 from transformers import EsmModel, EsmTokenizer
 
-from enzrxnpred2.data.seq_embedding_data import SequenceEmbeddingData
-from enzrxnpred2.extension.seed import set_random_seed
+from adaptplm.data.seq_embedding_data import SequenceEmbeddingData
+from adaptplm.extension.seed import set_random_seed
 
 
 # save as npz format

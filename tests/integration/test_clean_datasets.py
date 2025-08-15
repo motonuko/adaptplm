@@ -5,7 +5,7 @@ from unittest import TestCase
 from click.testing import CliRunner
 from dotenv import load_dotenv
 
-from enzrxnpred2.cli.commands.preprocess import clean_enzyme_reaction_pair_full_dataset_cli
+from adaptplm.cli.commands.preprocess import clean_enzyme_reaction_pair_full_dataset_cli
 
 load_dotenv()
 

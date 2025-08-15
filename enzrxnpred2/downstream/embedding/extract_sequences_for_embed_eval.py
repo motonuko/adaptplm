@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from enzrxnpred2.core.default_path import DefaultPath
+from adaptplm.core.default_path import DefaultPath
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 

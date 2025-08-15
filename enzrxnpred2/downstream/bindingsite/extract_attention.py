@@ -5,9 +5,9 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import EsmTokenizer, EsmModel
 
-from enzrxnpred2.extension.seed import set_random_seed
-from enzrxnpred2.extension.torch_ext import get_device
-from enzrxnpred2.mlm.train_utils.custom_data_collator4 import CustomTokenizedTextDataset4, MyCustomDataCollator4
+from adaptplm.extension.seed import set_random_seed
+from adaptplm.extension.torch_ext import get_device
+from adaptplm.mlm.train_utils.custom_data_collator4 import CustomTokenizedTextDataset4, MyCustomDataCollator4
 
 
 def extract_attention_order_per_head(data_path, model_path, output_dir, seed: int):

@@ -8,10 +8,10 @@ import pandas as pd
 from matplotlib import ticker
 from scipy.stats import ttest_ind
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.core.package_version import get_package_major_version
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
-from enzrxnpred2.viz.cpi_result.boxplot_utils import split_active_site, sort_key
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.core.package_version import get_package_major_version
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
+from adaptplm.viz.cpi_result.boxplot_utils import split_active_site, sort_key
 
 
 def xx2(df):

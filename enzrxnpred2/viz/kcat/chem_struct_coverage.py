@@ -3,10 +3,10 @@ from matplotlib import pyplot as plt
 from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem, rdFingerprintGenerator
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
-from enzrxnpred2.data.esp_datasource import load_esp_df
-from enzrxnpred2.data.turnup_datasource import load_kcat_df
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.data.esp_datasource import load_esp_df
+from adaptplm.data.turnup_datasource import load_kcat_df
 
 
 def mol_from_inchi_safe(inchi):

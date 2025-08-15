@@ -3,10 +3,10 @@ import unittest
 import torch
 from transformers import EsmModel, BertModel
 
-from enzrxnpred2.core.constants import ESM2_T6_8M_UR50D
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.mlm.model.seq_rxn_encoder import SeqRxnEncoderForMaskedLM
-from enzrxnpred2.mlm.model.seq_rxn_encoder_config import SeqRxnEncoderConfig
+from adaptplm.core.constants import ESM2_T6_8M_UR50D
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.mlm.model.seq_rxn_encoder import SeqRxnEncoderForMaskedLM
+from adaptplm.mlm.model.seq_rxn_encoder_config import SeqRxnEncoderConfig
 
 
 class MyTestCase(unittest.TestCase):

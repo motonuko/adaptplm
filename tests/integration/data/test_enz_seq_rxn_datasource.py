@@ -1,7 +1,7 @@
 import unittest
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
 
 
 class EnzSeqRxnDatasourceTestCase(unittest.TestCase):

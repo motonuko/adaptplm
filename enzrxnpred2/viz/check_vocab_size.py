@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.mlm.tokenizer.smile_bert_tokenizer import SmilesBertTokenizer
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.mlm.tokenizer.smile_bert_tokenizer import SmilesBertTokenizer
 
 
 def get_vocab(path: Path):

@@ -7,8 +7,8 @@ from transformers import PreTrainedTokenizer, BatchEncoding, PreTrainedTokenizer
 from transformers.data.data_collator import DataCollatorMixin, _torch_collate_batch
 from transformers.utils import PaddingStrategy
 
-from enzrxnpred2.core.constants import MAX_SEQUENCE_LENGTH
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.core.constants import MAX_SEQUENCE_LENGTH
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 @dataclass

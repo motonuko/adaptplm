@@ -4,11 +4,11 @@ import unittest
 import numpy as np
 from tqdm import tqdm
 
-from enzrxnpred2.core.constants import ESM1B_T33_650M_UR50S
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource, datasets_used_in_paper
-from enzrxnpred2.downstream.cpi.domain.exp_config import ProteinFeatConfig
-from enzrxnpred2.downstream.cpi.ml.enzyme_feature import EsmFeatureConstructor
+from adaptplm.core.constants import ESM1B_T33_650M_UR50S
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource, datasets_used_in_paper
+from adaptplm.downstream.cpi.domain.exp_config import ProteinFeatConfig
+from adaptplm.downstream.cpi.ml.enzyme_feature import EsmFeatureConstructor
 
 
 class MyTestCase(unittest.TestCase):

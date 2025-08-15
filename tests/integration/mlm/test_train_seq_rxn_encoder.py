@@ -3,9 +3,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from enzrxnpred2.core.constants import ESM2_T6_8M_UR50D
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.mlm.train_seq_rxn_encoder import train_seq_rxn_encoder_with_mlm, \
+from adaptplm.core.constants import ESM2_T6_8M_UR50D
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.mlm.train_seq_rxn_encoder import train_seq_rxn_encoder_with_mlm, \
     SeqRxnEncoderTrainingConfig
 from tests.test_utils.hash import calculate_file_hash
 

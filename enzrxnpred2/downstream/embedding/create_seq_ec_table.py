@@ -1,9 +1,9 @@
 import logging
 from pathlib import Path
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
-from enzrxnpred2.domain.ec_number import to_ec_class
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.domain.ec_number import to_ec_class
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 

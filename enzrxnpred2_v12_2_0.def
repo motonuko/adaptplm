@@ -12,10 +12,10 @@ Stage: setup-enzrxnpred-env
 
 %files
     requirements_for_singularity.txt /requirements_for_singularity.txt
-    dist/enzrxnpred2-12.2.0-py3-none-any.whl /enzrxnpred2-12.2.0-py3-none-any.whl
+    dist/adaptplm-12.2.0-py3-none-any.whl /adaptplm-12.2.0-py3-none-any.whl
 
 %post
-    # cd enzrxnpred2
+    # cd adaptplm
 
     export DEBIAN_FRONTEND=noninteractive
     export TZ=Asia/Tokyo
@@ -39,7 +39,7 @@ Stage: setup-enzrxnpred-env
     python3 -m pip install --upgrade pip
     python3 -m pip install --no-cache-dir torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu118
     python3 -m pip install --no-cache-dir -r /requirements_for_singularity.txt
-    python3 -m pip install --no-cache-dir /enzrxnpred2-12.2.0-py3-none-any.whl
+    python3 -m pip install --no-cache-dir /adaptplm-12.2.0-py3-none-any.whl
 
 
 # Runs at `instance start` is called

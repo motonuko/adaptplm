@@ -3,9 +3,9 @@ from typing import Optional
 
 import click
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.mlm.construct_vocab import build_vocab, SPECIAL_TOKENS_FOR_BERT_MODEL
-from enzrxnpred2.mlm.train_seq_rxn_encoder import SeqRxnEncoderTrainingConfig, train_seq_rxn_encoder_with_mlm
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.mlm.construct_vocab import build_vocab, SPECIAL_TOKENS_FOR_BERT_MODEL
+from adaptplm.mlm.train_seq_rxn_encoder import SeqRxnEncoderTrainingConfig, train_seq_rxn_encoder_with_mlm
 
 
 @click.command()

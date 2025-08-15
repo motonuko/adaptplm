@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.mlm.model.seq_rxn_encoder_config import SeqRxnEncoderConfig
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.mlm.model.seq_rxn_encoder_config import SeqRxnEncoderConfig
 
 
 class TestSeqRxnEncoderConfig(TestCase):

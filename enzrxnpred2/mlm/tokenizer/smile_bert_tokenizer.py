@@ -3,7 +3,7 @@ from typing import List
 
 from transformers import BertTokenizer
 
-from enzrxnpred2.domain.regex_tokenizer import MultipleSmilesTokenizer
+from adaptplm.domain.regex_tokenizer import MultipleSmilesTokenizer
 
 
 class SmilesBertTokenizer(BertTokenizer):

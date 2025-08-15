@@ -3,7 +3,7 @@ import unittest
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
-from enzrxnpred2.extension.rdkit_ext import remove_atom_mapping, randomize_reaction_smiles, \
+from adaptplm.extension.rdkit_ext import remove_atom_mapping, randomize_reaction_smiles, \
     compute_morgan_fingerprint_as_array
 
 

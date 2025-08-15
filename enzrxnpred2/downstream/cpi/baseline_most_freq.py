@@ -2,8 +2,8 @@ import numpy as np
 from sklearn.metrics import roc_auc_score, average_precision_score
 from sklearn.model_selection import KFold
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource, \
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource, \
     EnzActivityScreeningDataset
 
 

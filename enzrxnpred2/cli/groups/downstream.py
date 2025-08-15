@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 env_path = os.path.join(os.getcwd(), '.env')
 load_dotenv(env_path)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-from enzrxnpred2.cli.commands.downstream import run_nested_cv_on_enz_activity_cls_cli, \
+from adaptplm.cli.commands.downstream import run_nested_cv_on_enz_activity_cls_cli, \
     extract_attention_order_per_head_cli, compute_sentence_embedding_cli, compute_sentence_embedding_cli2, \
     compute_clustering_scores_cli
 

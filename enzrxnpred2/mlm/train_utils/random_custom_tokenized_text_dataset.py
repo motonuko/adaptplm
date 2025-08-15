@@ -2,8 +2,8 @@ import pandas as pd
 import torch.utils.data as data
 from transformers import PreTrainedTokenizer
 
-from enzrxnpred2.extension.rdkit_ext import randomize_reaction_smiles
-from enzrxnpred2.mlm.train_utils.custom_data_collator import CustomDataInput
+from adaptplm.extension.rdkit_ext import randomize_reaction_smiles
+from adaptplm.mlm.train_utils.custom_data_collator import CustomDataInput
 
 
 class RandomCustomTokenizedTextDataset(data.Dataset):

@@ -1,6 +1,6 @@
 import unittest
 
-from enzrxnpred2.domain.regex_tokenizer import MultipleSmilesTokenizer
+from adaptplm.domain.regex_tokenizer import MultipleSmilesTokenizer
 
 
 class MyTestCase(unittest.TestCase):

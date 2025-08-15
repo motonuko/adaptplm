@@ -5,10 +5,10 @@ from typing import Optional
 
 from matplotlib import pyplot as plt
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.core.package_version import get_package_major_version
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
-from enzrxnpred2.extension.matplotlib_ext import load_font_ipaexg
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.core.package_version import get_package_major_version
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.extension.matplotlib_ext import load_font_ipaexg
 
 
 # deprecated. Use domain.ec_number.to_ec_class

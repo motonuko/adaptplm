@@ -5,10 +5,10 @@ import random
 
 import pandas as pd
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.downstream.bindingsite.core import slices_to_indices, indices_to_slices, parse_slice_texts
-from enzrxnpred2.downstream.bindingsite.external import get_overlap_and_penalty_score
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.downstream.bindingsite.core import slices_to_indices, indices_to_slices, parse_slice_texts
+from adaptplm.downstream.bindingsite.external import get_overlap_and_penalty_score
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 # def overlap_score(correct: List[List[int]], predicted: List[List[int]]) -> float:

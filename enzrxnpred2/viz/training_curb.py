@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.extension.matplotlib_ext import load_font_ipaexg
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.extension.matplotlib_ext import load_font_ipaexg
 
 
 def export_multiple_training_curves_to_pdf(

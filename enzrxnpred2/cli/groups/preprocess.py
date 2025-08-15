@@ -9,7 +9,7 @@ env_path = os.path.join(os.getcwd(), '.env')
 load_dotenv(env_path)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-from enzrxnpred2.cli.commands.preprocess import clean_enzyme_reaction_pair_full_dataset_cli, \
+from adaptplm.cli.commands.preprocess import clean_enzyme_reaction_pair_full_dataset_cli, \
     split_enzsrp_full_dataset_cli, create_sequence_inputs_for_splitting_cli, create_sequence_inputs_for_analysis_cli
 
 

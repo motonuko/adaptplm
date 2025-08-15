@@ -1,10 +1,10 @@
 import numpy as np
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.cd_hit_result_datasource import load_clstr_file_as_dataframe
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset, \
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.cd_hit_result_datasource import load_clstr_file_as_dataframe
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset, \
     EnzActivityScreeningDatasource, datasets_used_in_paper
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 def entropy(p):

@@ -9,17 +9,17 @@ import pandas as pd
 from joblib import Parallel, delayed
 from sklearn.model_selection import KFold
 
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource
-from enzrxnpred2.downstream.cpi.domain.exp_config import ExpConfig
-from enzrxnpred2.downstream.cpi.domain.exp_master_config import ExpMasterConfig
-from enzrxnpred2.downstream.cpi.ml.cls_metric import construct_metric_instance, metric_to_key, key_metric_map
-from enzrxnpred2.downstream.cpi.ml.enzyme_feature import EsmFeatureConstructor
-from enzrxnpred2.downstream.cpi.ml.ml_pipeline import FNNModelPipeline
-from enzrxnpred2.extension.bio_ext import calculate_crc64
-from enzrxnpred2.extension.optuna_ext import get_top_trials
-from enzrxnpred2.extension.rdkit_ext import compute_morgan_fingerprint_as_array
-from enzrxnpred2.extension.seed import set_random_seed
-from enzrxnpred2.extension.torch_ext import get_device
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDatasource
+from adaptplm.downstream.cpi.domain.exp_config import ExpConfig
+from adaptplm.downstream.cpi.domain.exp_master_config import ExpMasterConfig
+from adaptplm.downstream.cpi.ml.cls_metric import construct_metric_instance, metric_to_key, key_metric_map
+from adaptplm.downstream.cpi.ml.enzyme_feature import EsmFeatureConstructor
+from adaptplm.downstream.cpi.ml.ml_pipeline import FNNModelPipeline
+from adaptplm.extension.bio_ext import calculate_crc64
+from adaptplm.extension.optuna_ext import get_top_trials
+from adaptplm.extension.rdkit_ext import compute_morgan_fingerprint_as_array
+from adaptplm.extension.seed import set_random_seed
+from adaptplm.extension.torch_ext import get_device
 
 logger = logging.getLogger(__name__)
 

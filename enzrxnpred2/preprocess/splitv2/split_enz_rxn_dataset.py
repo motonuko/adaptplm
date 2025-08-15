@@ -3,9 +3,9 @@ from pathlib import Path
 
 from sklearn.model_selection import train_test_split
 
-from enzrxnpred2.data.cd_hit_result_datasource import load_clstr_file_as_dataframe
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.data.cd_hit_result_datasource import load_clstr_file_as_dataframe
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 # Split based on clusters.

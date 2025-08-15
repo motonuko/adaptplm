@@ -1,6 +1,6 @@
 import pandas as pd
 
-from enzrxnpred2.core.default_path import DefaultPath
+from adaptplm.core.default_path import DefaultPath
 
 # Max token length of ESP model is 1022 (including special tokens)
 # https://github.com/AlexanderKroll/ESP/blob/main/notebooks_and_code/extract.py#L99

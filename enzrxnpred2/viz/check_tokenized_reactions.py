@@ -1,6 +1,6 @@
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
-from enzrxnpred2.domain.regex_tokenizer import MultipleSmilesTokenizer
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.domain.regex_tokenizer import MultipleSmilesTokenizer
 
 
 def main():

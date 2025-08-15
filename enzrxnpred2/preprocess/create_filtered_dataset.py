@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
 
 
 def create_filtered_seq_rxn_pair_dataset(seq_rxn_pair_file: Path, output_file: Path, exclude_seq_hashes: Path):

@@ -5,7 +5,7 @@ from collections import Counter
 from pathlib import Path
 from typing import List, Optional
 
-from enzrxnpred2.domain.regex_tokenizer import MultipleSmilesTokenizer
+from adaptplm.domain.regex_tokenizer import MultipleSmilesTokenizer
 
 # see BertTokenizer
 SPECIAL_TOKENS_FOR_BERT_MODEL = [

@@ -11,15 +11,15 @@ from torch.optim import AdamW
 from torch.utils.data import DataLoader, WeightedRandomSampler
 from transformers import EsmTokenizer, PreTrainedModel
 
-from enzrxnpred2.data.cd_hit_result_datasource import CdHitResultDatasource
-from enzrxnpred2.extension.seed import set_random_seed
-from enzrxnpred2.mlm.calculate_sampling_weight import calculate_sampling_weight
-from enzrxnpred2.mlm.model.seq_rxn_encoder import SeqRxnEncoderForMaskedLM
-from enzrxnpred2.mlm.model.seq_rxn_encoder_config import SeqRxnEncoderConfig
-from enzrxnpred2.mlm.tokenizer.smile_bert_tokenizer import SmilesBertTokenizer
-from enzrxnpred2.mlm.train_utils.custom_data_collator import MyCustomDataCollator, CustomTokenizedTextDataset
-from enzrxnpred2.mlm.train_utils.custom_train_loop import CustomTrainLoop, LoopConfig
-from enzrxnpred2.mlm.train_utils.random_custom_tokenized_text_dataset import RandomCustomTokenizedTextDataset
+from adaptplm.data.cd_hit_result_datasource import CdHitResultDatasource
+from adaptplm.extension.seed import set_random_seed
+from adaptplm.mlm.calculate_sampling_weight import calculate_sampling_weight
+from adaptplm.mlm.model.seq_rxn_encoder import SeqRxnEncoderForMaskedLM
+from adaptplm.mlm.model.seq_rxn_encoder_config import SeqRxnEncoderConfig
+from adaptplm.mlm.tokenizer.smile_bert_tokenizer import SmilesBertTokenizer
+from adaptplm.mlm.train_utils.custom_data_collator import MyCustomDataCollator, CustomTokenizedTextDataset
+from adaptplm.mlm.train_utils.custom_train_loop import CustomTrainLoop, LoopConfig
+from adaptplm.mlm.train_utils.random_custom_tokenized_text_dataset import RandomCustomTokenizedTextDataset
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)

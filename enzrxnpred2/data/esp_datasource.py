@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 def load_esp_df(pkl_file: Path, need_hash: bool = False) -> pd.DataFrame:

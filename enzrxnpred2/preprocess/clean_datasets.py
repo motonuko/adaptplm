@@ -7,10 +7,10 @@ from rdkit import Chem
 from rdkit.Chem import AllChem, rdChemReactions
 from tqdm import tqdm
 
-from enzrxnpred2.core.constants import MAX_RXN_TOKENIZED_LEN, MIN_HEAVY_ATOM, MAX_SEQUENCE_LENGTH, MIN_SEQUENCE_LENGTH
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
-from enzrxnpred2.domain.regex_tokenizer import MultipleSmilesTokenizer
-from enzrxnpred2.extension.rdkit_ext import remove_atom_mapping
+from adaptplm.core.constants import MAX_RXN_TOKENIZED_LEN, MIN_HEAVY_ATOM, MAX_SEQUENCE_LENGTH, MIN_SEQUENCE_LENGTH
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.domain.regex_tokenizer import MultipleSmilesTokenizer
+from adaptplm.extension.rdkit_ext import remove_atom_mapping
 
 tqdm.pandas()
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

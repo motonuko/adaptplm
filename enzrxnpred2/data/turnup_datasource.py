@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from enzrxnpred2.core.default_path import DefaultPath
+from adaptplm.core.default_path import DefaultPath
 
 
 def load_kcat_df(pkl_file: Path) -> pd.DataFrame:

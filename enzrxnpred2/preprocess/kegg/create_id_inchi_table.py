@@ -2,7 +2,7 @@ from pathlib import Path
 
 from rdkit import Chem
 
-from enzrxnpred2.core.default_path import DefaultPath
+from adaptplm.core.default_path import DefaultPath
 
 
 def molfile_to_mol(molfile_path: Path):

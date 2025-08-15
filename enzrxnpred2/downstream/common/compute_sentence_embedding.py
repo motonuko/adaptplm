@@ -5,7 +5,7 @@ import torch
 from accelerate import Accelerator
 from transformers import EsmModel, EsmTokenizer
 
-from enzrxnpred2.extension.seed import set_random_seed
+from adaptplm.extension.seed import set_random_seed
 
 
 def compute_sentence_embedding(data_path, model_path, output_csv, seed: int, max_seq_len: Optional[int],

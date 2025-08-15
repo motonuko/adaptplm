@@ -11,8 +11,8 @@ from transformers.models.bert.modeling_bert import BertModel, BertOnlyMLMHead, \
     BertLayer
 from transformers.utils import ModelOutput
 
-from enzrxnpred2.mlm.model.init_util_module import InitUtilModule
-from enzrxnpred2.mlm.model.seq_rxn_encoder_config import SeqRxnEncoderConfig
+from adaptplm.mlm.model.init_util_module import InitUtilModule
+from adaptplm.mlm.model.seq_rxn_encoder_config import SeqRxnEncoderConfig
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)

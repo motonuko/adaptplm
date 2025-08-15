@@ -1,6 +1,6 @@
 import pandas as pd
 
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 # TODO: function name

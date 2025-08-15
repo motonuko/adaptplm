@@ -1,5 +1,5 @@
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
 
 
 def split_fasta(input_file, output_dir, chunk_size=100):

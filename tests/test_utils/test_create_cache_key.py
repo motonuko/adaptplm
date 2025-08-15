@@ -2,7 +2,7 @@ import unittest
 from dataclasses import dataclass
 from enum import Enum
 
-from enzrxnpred2._legacy.disk_cache_util import create_cache_key
+from adaptplm._legacy.disk_cache_util import create_cache_key
 
 
 @dataclass(frozen=True)

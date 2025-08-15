@@ -3,16 +3,16 @@
 #
 # from click.testing import CliRunner
 #
-# from enzrxnpred2.cli.commands.mlm import train_seq_rxn_encoder_with_mlm_cli
-# from enzrxnpred2.domain.constants import ESM2_T6_8M_UR50D
-# from enzrxnpred2.utils.default_path import DefaultPath
+# from adaptplm.cli.commands.mlm import train_seq_rxn_encoder_with_mlm_cli
+# from adaptplm.domain.constants import ESM2_T6_8M_UR50D
+# from adaptplm.utils.default_path import DefaultPath
 #
 #
 # class TestTrainPretrainMaskedLM(unittest.TestCase):
 #     def setUp(self):
 #         self.runner = CliRunner()
 #
-#     @patch('enzrxnpred2.mlm.train_seq_rxn_encoder.train_seq_rxn_encoder_with_mlm')  # TODO: Update package name on publishing code
+#     @patch('adaptplm.mlm.train_seq_rxn_encoder.train_seq_rxn_encoder_with_mlm')  # TODO: Update package name on publishing code
 #     def test_default_parameters(self, mock_external_function):
 #         mock_external_function.return_value = None
 #         config_path = DefaultPath().test_data_dir / 'model_configs' / 'seq_rxn_encoder_config.json'

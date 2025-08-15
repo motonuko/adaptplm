@@ -13,7 +13,7 @@ from torch import nn
 from tqdm import tqdm
 from transformers import get_scheduler
 
-from enzrxnpred2.extension.torch_ext import get_summary_writer
+from adaptplm.extension.torch_ext import get_summary_writer
 
 
 @dataclass(frozen=True)

@@ -1,6 +1,6 @@
 import unittest
 
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 # test data license

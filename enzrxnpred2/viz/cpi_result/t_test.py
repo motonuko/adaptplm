@@ -1,9 +1,9 @@
 import pandas as pd
 from scipy import stats
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
-from enzrxnpred2.viz.cpi_result.boxplot_utils import split_active_site, min_max, sort_key
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
+from adaptplm.viz.cpi_result.boxplot_utils import split_active_site, min_max, sort_key
 
 
 def xx(df):

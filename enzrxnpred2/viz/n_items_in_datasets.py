@@ -1,7 +1,7 @@
 import pandas as pd
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.esp_datasource import load_esp_df
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.esp_datasource import load_esp_df
 
 
 def main():

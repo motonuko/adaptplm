@@ -3,19 +3,19 @@ requires = ["setuptools>=64", "wheel", "setuptools_scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "enzrxnpred2"  # TODO: should be unique
+name = "adaptplm"  # TODO: should be unique
 # release versioning: "9.1.0",  dev versioning: "9.1.0.dev0"
 version = "12.2.0"
 description = "A Python package"
 authors = [{ name = "Tomoya Okuno", email = "motonuko.contact@gmail.com" }]
 
 [tool.setuptools.packages]
-find = { include = ["enzrxnpred2"], exclude = ["*.tests", "*.tests.*", "tests.*", "tests"] }
+find = { include = ["adaptplm"], exclude = ["*.tests", "*.tests.*", "tests.*", "tests"] }
 
 # TODO: write dependencies
 # TODO: write license
 
 [project.scripts]
-enzrxn-preprocess = "enzrxnpred2.cli.groups.preprocess:preprocess"
-enzrxn-mlm = "enzrxnpred2.cli.groups.mlm:mlm"
-enzrxn-downstream = "enzrxnpred2.cli.groups.downstream:downstream"
+enzrxn-preprocess = "adaptplm.cli.groups.preprocess:preprocess"
+enzrxn-mlm = "adaptplm.cli.groups.mlm:mlm"
+enzrxn-downstream = "adaptplm.cli.groups.downstream:downstream"

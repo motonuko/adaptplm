@@ -1,4 +1,4 @@
-from enzrxnpred2.core.default_path import DefaultPath
+from adaptplm.core.default_path import DefaultPath
 
 
 def get_package_version(prefix_v: bool = True, use_underscore: bool = True):

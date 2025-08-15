@@ -1,6 +1,6 @@
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.load_interproscan_tsv import load_interproscan_result_tsv
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import datasets_used_in_paper
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.load_interproscan_tsv import load_interproscan_result_tsv
+from adaptplm.data.original_enz_activity_dense_screen_datasource import datasets_used_in_paper
 
 
 # Make a slimmed version for sharing data

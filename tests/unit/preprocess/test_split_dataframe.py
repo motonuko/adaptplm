@@ -4,7 +4,7 @@
 #
 # import pandas as pd
 #
-# from enzrxnpred2.preprocess.split_dataframe import split_dataframe
+# from adaptplm.preprocess.split_dataframe import split_dataframe
 #
 #
 # class TestSplitDataFrame(unittest.TestCase):

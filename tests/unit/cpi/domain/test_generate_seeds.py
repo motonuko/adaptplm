@@ -1,6 +1,6 @@
 import unittest
 
-from enzrxnpred2.downstream.cpi.domain.generate_seeds import generate_nested_cv_seeds
+from adaptplm.downstream.cpi.domain.generate_seeds import generate_nested_cv_seeds
 
 
 class TestGenerateNestedCvSeeds(unittest.TestCase):

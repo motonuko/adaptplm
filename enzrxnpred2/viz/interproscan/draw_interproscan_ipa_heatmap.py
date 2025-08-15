@@ -5,12 +5,12 @@ import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.core.package_version import get_package_version, get_package_major_version
-from enzrxnpred2.data.load_interproscan_tsv import load_interproscan_result_tsv_as_ipa_binary_feature
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset, \
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.core.package_version import get_package_version, get_package_major_version
+from adaptplm.data.load_interproscan_tsv import load_interproscan_result_tsv_as_ipa_binary_feature
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset, \
     EnzActivityScreeningDatasource
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 def draw_interproscan_ipa_heatmap(dataset: EnzActivityScreeningDataset,

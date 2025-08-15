@@ -4,9 +4,9 @@ from typing import List
 
 from matplotlib import pyplot as plt
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.core.package_version import get_package_major_version
-from enzrxnpred2.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.core.package_version import get_package_major_version
+from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
 
 
 def print_stat(numbers: List[int]):

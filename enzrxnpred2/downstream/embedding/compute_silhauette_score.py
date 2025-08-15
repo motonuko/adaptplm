@@ -10,8 +10,8 @@ from scipy.spatial.distance import cdist
 from sklearn.metrics import davies_bouldin_score, calinski_harabasz_score, silhouette_samples
 from sklearn.metrics.pairwise import cosine_similarity
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.seq_embedding_data import SequenceEmbeddingData
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.seq_embedding_data import SequenceEmbeddingData
 
 
 def compute_cluster_silhouette_scores(X, labels):

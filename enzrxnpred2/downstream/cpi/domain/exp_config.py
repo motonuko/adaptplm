@@ -1,8 +1,8 @@
 from dataclasses import dataclass, asdict
 from typing import Dict, Any, List
 
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
-from enzrxnpred2.downstream.cpi.domain.protein_lm_embedding import EmbeddingType, ProteinLMEmbedding
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
+from adaptplm.downstream.cpi.domain.protein_lm_embedding import EmbeddingType, ProteinLMEmbedding
 
 
 @dataclass(frozen=True)

@@ -1,4 +1,4 @@
-name: enzrxnpred2
+name: adaptplm
 channels:
   - conda-forge
   - pytorch

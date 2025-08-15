@@ -10,12 +10,12 @@ from optuna.study import StudyDirection
 from sklearn.metrics import roc_auc_score, average_precision_score
 from sklearn.model_selection import KFold
 
-from enzrxnpred2.downstream.cpi.domain.exp_config import ExpConfig, IntOptimParams, FloatOptimParams, \
+from adaptplm.downstream.cpi.domain.exp_config import ExpConfig, IntOptimParams, FloatOptimParams, \
     CategoricalOptimParams
-from enzrxnpred2.downstream.cpi.ml.model2 import FeedForwardNN2
-from enzrxnpred2.downstream.cpi.ml.training_loop import train_and_eval, train_loop
-from enzrxnpred2.extension.optuna_ext import get_top_trials
-from enzrxnpred2.extension.torch_ext import get_device
+from adaptplm.downstream.cpi.ml.model2 import FeedForwardNN2
+from adaptplm.downstream.cpi.ml.training_loop import train_and_eval, train_loop
+from adaptplm.extension.optuna_ext import get_top_trials
+from adaptplm.extension.torch_ext import get_device
 
 
 class OptimRecorder:

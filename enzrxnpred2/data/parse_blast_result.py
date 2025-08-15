@@ -4,10 +4,10 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from scipy.stats import variation
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset, \
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset, \
     EnzActivityScreeningDatasource
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 def load_blast_result_file(file_path: Path) -> pd.DataFrame:

@@ -2,8 +2,8 @@ from typing import List
 
 import pandas as pd
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.cd_hit_result_datasource import load_clstr_file_as_dataframe
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.cd_hit_result_datasource import load_clstr_file_as_dataframe
 
 CLUSTER_HAS_SEQ_FROM = 'cluster_has_seq_from'
 

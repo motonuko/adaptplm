@@ -1,6 +1,6 @@
 import unittest
 
-from enzrxnpred2.mlm.train_utils.custom_train_loop import is_in_remainder_batches
+from adaptplm.mlm.train_utils.custom_train_loop import is_in_remainder_batches
 
 
 class TestRemainderBatchDetection(unittest.TestCase):

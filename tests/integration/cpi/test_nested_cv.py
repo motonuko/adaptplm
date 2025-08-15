@@ -3,9 +3,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.downstream.cpi.nested_cv import run_nested_cv_on_enz_activity_cls
-from enzrxnpred2.extension.seed import set_random_seed
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.downstream.cpi.nested_cv import run_nested_cv_on_enz_activity_cls
+from adaptplm.extension.seed import set_random_seed
 from tests.test_utils.hash import calculate_file_hash
 
 

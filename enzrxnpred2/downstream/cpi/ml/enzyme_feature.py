@@ -6,15 +6,15 @@ from numpy import float32
 from numpy.typing import NDArray
 from transformers import EsmTokenizer, EsmModel
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.data.crc64_embedding_data import CRC64EmbeddingData
-from enzrxnpred2.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
-from enzrxnpred2.downstream.cpi.domain.exp_config import ProteinFeatConfig
-from enzrxnpred2.downstream.cpi.domain.protein_lm_embedding import CoveragePoolEmbedding, \
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.data.crc64_embedding_data import CRC64EmbeddingData
+from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActivityScreeningDataset
+from adaptplm.downstream.cpi.domain.exp_config import ProteinFeatConfig
+from adaptplm.downstream.cpi.domain.protein_lm_embedding import CoveragePoolEmbedding, \
     ConservationPoolEmbedding, \
     AveragePoolEmbedding, ActiveSitePoolEmbedding, EnzRxnMLMEmbedding, PrecomputedEmbedding
-from enzrxnpred2.downstream.cpi.external import parse_utils
-from enzrxnpred2.extension.bio_ext import calculate_crc64
+from adaptplm.downstream.cpi.external import parse_utils
+from adaptplm.extension.bio_ext import calculate_crc64
 
 
 def _get_mapping(pooling_strategy, dataset: EnzActivityScreeningDataset):

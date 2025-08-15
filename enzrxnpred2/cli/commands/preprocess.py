@@ -2,11 +2,11 @@ from pathlib import Path
 
 import click
 
-from enzrxnpred2.core.default_path import DefaultPath
-from enzrxnpred2.preprocess.cdhit2.create_cdhit_input import create_sequence_inputs_for_splitting, \
+from adaptplm.core.default_path import DefaultPath
+from adaptplm.preprocess.cdhit2.create_cdhit_input import create_sequence_inputs_for_splitting, \
     create_sequence_inputs_for_analysis
-from enzrxnpred2.preprocess.clean_datasets import clean_enzyme_reaction_pair_dataset
-from enzrxnpred2.preprocess.splitv2.split_enz_rxn_dataset import split_enz_rxn_dataset
+from adaptplm.preprocess.clean_datasets import clean_enzyme_reaction_pair_dataset
+from adaptplm.preprocess.splitv2.split_enz_rxn_dataset import split_enz_rxn_dataset
 
 
 @click.command()

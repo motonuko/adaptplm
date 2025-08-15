@@ -1,4 +1,4 @@
-from enzrxnpred2.core.default_path import DefaultPath
+from adaptplm.core.default_path import DefaultPath
 from tests.test_utils.hash import calculate_file_hash
 
 if __name__ == '__main__':

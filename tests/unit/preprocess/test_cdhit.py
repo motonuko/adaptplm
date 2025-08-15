@@ -1,7 +1,7 @@
 import unittest
 
 # noinspection PyProtectedMember
-from enzrxnpred2.preprocess.clean_datasets import _rxn_smiles_preprocessing
+from adaptplm.preprocess.clean_datasets import _rxn_smiles_preprocessing
 
 
 class TestRxnSmilesPreprocessing(unittest.TestCase):

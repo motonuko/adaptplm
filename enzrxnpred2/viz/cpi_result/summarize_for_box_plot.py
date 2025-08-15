@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from enzrxnpred2.viz.exp_result import ExpResult
+from adaptplm.viz.exp_result import ExpResult
 
 
 def parse(file_path: Path) -> ExpResult:
