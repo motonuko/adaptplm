@@ -2,27 +2,66 @@
 
 ### EnzSRP (Enzyme Sequence Reaction Pair) dataset
 
+Download EnzSRP dataset from the link below.
+
 (TODO: link to another project)
 
+Place the EnzSRP dataset (`enzsrp_full.csv`) at `<project root>/data/dataset/raw/enzsrp_full.csv`
+
+If you want to collect the pairs of enzyme sequence and reactions, check the project below.
+
+https://github.com/motonuko/enzsrp
 
 ## 2. Clean and split dataset.
+
+### Set up .env
+
+We manage all data paths using the .env file. 
+These paths will serve as the default paths, simplifying the process of running scripts.
+Please create a .env file in the project's root directory:
+
+```shell
+touch .env
+```
+
+Set the path of project root in created `.env` file.
+
+```shell
+ENZRXNPRED_PROJECT_PATH="<path-to-the-project-root>"
+```
 
 ### Clean
 
 ```shell
 enzrxn-preprocess clean-enzyme-reaction-pair-full-dataset > logs/clean-enzyme-reaction-pair-full-dataset.log 2>&1
-enzrxn-preprocess clean-enzyme-reaction-pair-dataset > logs/clean-enzyme-reaction-pair-dataset.log 2>&1
 ```
 
-### Split
+### CD-HIT
 
 ```shell
 enzrxn-preprocess create-sequence-inputs-for-splitting
-mkdir -p build/cdhit
+mkdir -p build/cdhit/enzsrp_full
 ```
+
+If cd-hit has not installed in your computer, please install it before running the following script.
+
+
+(the following script is only for mac user)
+
+```shell
+brew tap brewsci/bio
+brew install cd-hit
+```
+
+Run CD-HIT 
 
 ```shell
 cd-hit -i build/fasta/enzsrp_full/enzsrp_full_input.fasta -o build/cdhit/enzsrp_full/enzsrp_full_80 -c 0.8 -n 5 -T 4 -M 4000 -d 0
+```
+
+### Split data with using CD-HIT result
+
+```shell
 enzrxn-preprocess split-enzsrp-full-dataset > logs/split-enzsrp-full-dataset.log 2>&1
 ```
 
@@ -38,7 +77,8 @@ enzrxn-mlm build-vocab-enzsrp-full > logs/build-vocab-enzsrp-full.log 2>&1
 ### Train Cross-Attention Model
 
 ```shell
-enzrxn-mlm train-seq-rxn-encoder-with-mlm --n-training-steps 1 --batch-size 2 --seq-rxn-encoder-config-file data/exp_configs/sample2024Nov/seq_rxn_encoder.json --bert-pretrained local/exp/rxn_encoder_train/241204_152116 --esm-pretrained facebook/esm2_t6_8M_UR50D
+singularity exec --nv adaptplm_v1_0_0.sif \
+enzrxn-mlm train-seq-rxn-encoder-with-mlm --bert-model-config-file "data/exp_configs/sample2025Apr/bert_enzsrp_full_2hl.json" --esm-pretrained  facebook/esm1b_t33_650M_UR50S --seq-rxn-encoder-config-file "data/exp_configs/sample2025Apr/seq_rxn_encoder_2_4.json" --batch-size 4 --gradient-accumulation_steps 4 --train-data-path "data/dataset/processed/enzsrp_full_cleaned/enzsrp_full_cleaned_train.csv" --eval-data-path "data/dataset/processed/enzsrp_full_cleaned/enzsrp_full_cleaned_val.csv" --vocab-path "data/dataset/processed/vocab/enzsrp_full_cleand_train_vocab.txt" --randomize-rxn-smiles
 ```
 
-To use `--weighted-sampling` option, CD-HIT result is needed, which contains training sequences.
+(To use `--weighted-sampling` option, CD-HIT result is needed, which contains training sequences.)
