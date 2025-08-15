@@ -1,0 +1,27 @@
+name: enzrxnpred2
+channels:
+  - conda-forge
+  - pytorch
+  - anaconda
+dependencies:
+  - python=3.10.13
+  - rdkit==2024.3.5
+  - biopython==1.83
+  - tqdm==4.67.0
+  - optuna==3.4.0
+  - transformers==4.44.2
+  - tensorboard==2.14.0
+  - matplotlib==3.9.3
+  - accelerate==0.33.0
+  - datasets==2.20.0
+  - pytorch==2.2.2
+  - click==8.1.7
+  - seaborn==0.13.2
+  - joblib==1.4.2
+  - scikit-learn==1.5.2
+  - openpyxl==3.1.5
+  - pip
+  - pip:
+      - python-dotenv==1.0.1
+      - suds-py3==1.4.5.0  # for pd.read_pickle
+      # - umap-learn

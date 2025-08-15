@@ -1,0 +1,77 @@
+Bootstrap: docker
+From: nvcr.io/nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
+Stage: setup-enzrxnpred-env
+
+%setup
+
+%environment
+    export DEBIAN_FRONTEND=noninteractive
+    export TZ=Asia/Tokyo
+    export PATH="/opt/venv/bin:$PATH"
+    # export MOUNT_DIR=/mymount
+
+%files
+    requirements_for_singularity.txt /requirements_for_singularity.txt
+    dist/enzrxnpred2-12.2.0-py3-none-any.whl /enzrxnpred2-12.2.0-py3-none-any.whl
+
+%post
+    # cd enzrxnpred2
+
+    export DEBIAN_FRONTEND=noninteractive
+    export TZ=Asia/Tokyo
+    # export MOUNT_DIR=/mymount
+    # mkdir "$MOUNT_DIR"
+
+    apt update
+    apt install -y vim git wget zip unzip cmake python3.9 python3.9-venv
+    # python3.9-pip
+
+    update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+    update-alternatives --config python
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+    update-alternatives --config python3
+
+    mkdir -p /opt/venv
+    python3 -m venv /opt/venv
+    . /opt/venv/bin/activate
+
+
+    python3 -m pip install --upgrade pip
+    python3 -m pip install --no-cache-dir torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu118
+    python3 -m pip install --no-cache-dir -r /requirements_for_singularity.txt
+    python3 -m pip install --no-cache-dir /enzrxnpred2-12.2.0-py3-none-any.whl
+
+
+# Runs at `instance start` is called
+%startscript
+
+%runscript
+    . /opt/venv/bin/activate
+    exec "$@"
+
+
+%labels
+    Author okuno.tomoya.or9@is.naist.jp
+    Version v0.0.4
+
+%help
+    Huggingface docker image is not used since it uses dev version of transformers package
+    https://hub.docker.com/r/huggingface/transformers-pytorch-gpu/tags
+    https://github.com/huggingface/transformers/blob/main/docker/transformers-pytorch-gpu/Dockerfile
+
+    Pytorch image is also not used since it uses conda inside and the conda base environment is very slow to install additional packages.
+    https://hub.docker.com/r/pytorch/pytorch/tags
+
+    Transformers and pytorch versions compatibility
+    https://huggingface.co/docs/transformers/v4.34.1/en/installation
+
+    Pytorch and cuda compatibility
+    https://pytorch.org/get-started/previous-versions/
+
+    Current process needs rebuilding .sif file after editing source code. Probably, Creating conda environment that has
+    this package installed by `pip install -e .` on host machine and using it in singularity container is best solution
+    (but not tested yet)
+
+    If you accidentally copy the dataset (large file), the following error will appear.
+    FATAL:  While performing build: while creating squashfs: create command failed: exit status 1: Write failed because No space left on device
+    FATAL ERROR: Failed to write to output filesystem

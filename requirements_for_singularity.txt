@@ -1,0 +1,13 @@
+# libraries that is already in .def are not written
+click==8.1.7
+python-dotenv==1.0.1
+optuna==3.4.0
+rdkit==2024.3.5
+biopython==1.83
+seaborn==0.13.2
+transformers==4.44.2
+tensorboard==2.14.0
+accelerate==0.33.0
+datasets==2.20.0
+joblib==1.4.2
+scikit-learn==1.5.2
