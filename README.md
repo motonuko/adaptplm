@@ -8,13 +8,20 @@ Datasets for training are preprocessed on laptop using conda environment.
 conda env create -f environment.yml
 ```
 
+### Build
+
+```shell
+pip install build
+python -m build
+```
+
 ### Environment for training
 
 The training was run on the server using Singularity (Both of domain adaptation and activity prediction).
 Use the `.def` file and `requirements.txt` to replicate the environment.
 
 ```shell
-singularity build --fakeroot enzrxnpred_v3.sif enzrxnpred_v3.def 
+singularity build --fakeroot adaptplm_v1_0_0.sif adaptplm_v1_0_0.def 
 ```
 
 (If you are not familiar with Singularity, I recommend using Docker. We do not provide a Dockerfile,

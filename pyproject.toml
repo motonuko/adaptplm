@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "adaptplm"  # TODO: should be unique
 # release versioning: "9.1.0",  dev versioning: "9.1.0.dev0"
-version = "12.2.0"
+version = "1.0.0"
 description = "A Python package"
 authors = [{ name = "Tomoya Okuno", email = "motonuko.contact@gmail.com" }]
 
