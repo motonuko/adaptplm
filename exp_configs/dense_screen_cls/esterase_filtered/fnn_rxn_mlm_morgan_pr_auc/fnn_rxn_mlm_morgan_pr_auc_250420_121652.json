@@ -1,0 +1,84 @@
+{
+  "protein_feat_config": {
+    "model_name": "./local/exp/seqrxn_encoder_train/250420_121652/esm",
+    "embedding_type": "rxn_mlm",
+    "embedding_params": {}
+  },
+  "molecule_feat_config": {
+    "name": "morgan",
+    "params": {
+      "length": 1024
+    }
+  },
+  "model": "fnn",
+  "class_weight": "balanced",
+  "n_inner_folds": 3,
+  "n_outer_folds": 4,
+  "optim_params": [
+    {
+      "name": "n_hidden_layers",
+      "type": "int",
+      "min": 1,
+      "max": 2,
+      "step": 1
+    },
+    {
+      "name": "hidden_dim",
+      "type": "int",
+      "min": 16,
+      "max": 192,
+      "step": 16
+    },
+    {
+      "name": "learning_rate",
+      "type": "float",
+      "min": 0.0001,
+      "max": 0.02
+    },
+    {
+      "name": "dropout_rate",
+      "type": "float",
+      "min": 0.0,
+      "max": 0.2
+    },
+    {
+      "name": "weight_decay",
+      "type": "float",
+      "min": 0.0001,
+      "max": 0.01
+    },
+    {
+      "name": "batch_size",
+      "type": "categorical",
+      "candidates": [
+        512
+      ]
+    }
+  ],
+  "optuna_n_trials": 60,
+  "optuna_n_startup_trials": 10,
+  "optim_metric": "pr_auc",
+  "random_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "n_steps": 2000,
+  "eval_steps": 100,
+  "n_jobs": 4,
+  "data": "esterase_filtered",
+  "filter_seq_list": [],
+  "use_cpu": false,
+  "eval_metrics": [
+    "roc_auc",
+    "pr_auc"
+  ],
+  "ensemble_top_k": 5
+}

@@ -10,7 +10,6 @@ data/local/
 data/server_events
 data/out
 data/dataset
-data/exp_configs
 data/server_exp
 *.env
 enzrxnpred.egg-info
