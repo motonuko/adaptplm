@@ -45,8 +45,8 @@ mkdir logs
 
 Please refer to the appropriate document below according to your task.
 
-- [README_MASKED_LM.md](README_MASKED_LM.md)
+- [README_MASKED_LM.md](docs/README_MASKED_LM.md)
     - For domain adaptation of ESM model with EnzSRP dataset.
-- [README_DOWNSTREAM.md](README_DOWNSTREAM.md)
+- [README_DOWNSTREAM.md](docs/README_DOWNSTREAM.md)
     - For conducting downstream task experiments.
 
