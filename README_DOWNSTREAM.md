@@ -1,8 +1,11 @@
 ## Downstream tasks
 
-### Collect Data from three different sources
+### 1. Prepare datasets for CD-HIT
 
-#### The training dataset for ESP model
+To avoid running CD-HIT before each experiment, we provide a script that executes CD-HIT once for all downstream tasks.
+Before running CD-HIT, please prepare the datasets for these tasks.
+
+#### Collect the Training Dataset for ESP model
 
 The fine-tuning training data of ESP model can be downloaded from the following link.
 
@@ -14,7 +17,7 @@ After downloading, please define the path to the downloaded file.
 ORIGINAL_ESP_FINE_TUNING_PKL='<path-to-the-dir>/train_data_ESM_training.pkl'
 ```
 
-### Activity screening dataset
+### Collect Activity Screening Dataset
 
 ```shell
 git clone git@github.com:samgoldman97/enzyme-datasets.git
@@ -24,7 +27,7 @@ git clone git@github.com:samgoldman97/enzyme-datasets.git
 DATA_ORIGINAL_DENSE_SCREEN_PROCESSED="<path-to-the-root-of-cloned-project>/data/processed"
 ```
 
-### Kcat prediction
+### Collect K_cat Prediction Dataset
 
 Download the data from https://zenodo.org/records/8367052
 
@@ -34,7 +37,7 @@ ORIGINAL_KCAT_TRAIN_PKL="<path-to-the-downloaded-dir>/data/kcat_data/splits/trai
 ORIGINAL_KCAT_TEST_PKL="<path-to-the-downloaded-dir>/data/kcat_data/splits/test_df_kcat.pkl"
 ```
 
-### Common process
+### 2. Run CD-HIT
 
 ```shell
 enzrxn-preprocess create-sequence-inputs-for-analysis
@@ -44,7 +47,9 @@ enzrxn-preprocess create-sequence-inputs-for-analysis
 ./bin/run_cdhit_60.sh
 ```
 
-### Embedding evaluation
+The following instructions are for each downstream task. Please refer to the section you’d like to run.
+
+### 3. Embedding Evaluation with Clustering Score
 
 ```shell
 python adaptplm/downstream/embedding/extract_sequences_for_embed_eval.py
@@ -64,7 +69,7 @@ singularity exec --nv adaptplm_v1_0_0.sif \
 enzrxn-downstream compute-sentence-embedding2 --data-path "data/dataset/processed/embedding/enzsrp_test_sequences.txt" --model-path "<path-to-the-adapted-esm-model>/esm" --output-npy "build/embed/embeddings_for_embeddings_evaluation_<model-name>.npz" --batch-size 16
 ```
 
-### Train dense screen model
+### 4. Activity Classification for Family-wide Enzyme-substrate Specificity Screening Datasets
 
 
 ```shell
@@ -72,20 +77,24 @@ singularity exec --nv adaptplm_v1_0_0.sif \
 enzrxn-downstream run-nested-cv-on-enz-activity-cls --exp-config "<path-to-expconfig>"
 ```
 
-### Train k_cat model
+### 5. k_cat Prediction
 
-create sequence list for embedding generation
+Create sequence list for embedding generation.
 
 ```shell
 python adaptplm/data/extract_seq_kcat.py
 ```
+
+Generate embeddings for enzymes.
 
 ```shell
 singularity exec --nv adaptplm_v1_0_0.sif \
 enzrxn-downstream compute-sentence-embedding --data-path "data/dataset/processed/kcat/kcat_sequences.txt" --model-path "<path-to-the-adapted-esm-model>/esm" --output-csv "build/kcat/kcat_sequence_embeddings_<model-name>.csv" --batch-size 16
 ```
 
-### Binding site prediction
+The execution code for Kcat prediction is in a separate project. Please refer to https://github.com/motonuko/kcat_prediction_slim
+
+### 6. Binding site prediction
 
 ```shell
 singularity exec --nv adaptplm_v1_0_0.sif \
