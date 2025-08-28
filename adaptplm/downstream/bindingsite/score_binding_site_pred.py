@@ -98,7 +98,7 @@ def score(parent_path):
     fpr_result = pd.DataFrame(fpr_result)
     print(overlap_result.mean().sort_values(ascending=False))
     print()
-    print(fpr_result.mean())
+    print(fpr_result.mean().sort_values(ascending=True))
 
 
 # random prediction. overlap score will be around 0.48.

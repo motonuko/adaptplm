@@ -19,12 +19,13 @@ def slices_to_indices(slices: List[List[int]] | List[Tuple[int, int]]) -> Set[in
 def indices_to_slices(indices: List[int]) -> List[Tuple[int, int]]:
     if not indices:
         return []
+    ordered = list(sorted(indices))
 
     slices = []
-    start = indices[0]
-    prev = indices[0]
+    start = ordered[0]
+    prev = ordered[0]
 
-    for i in indices[1:]:
+    for i in ordered[1:]:
         if i == prev + 1:
             prev = i
         else:

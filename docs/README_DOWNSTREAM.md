@@ -100,3 +100,7 @@ The execution code for Kcat prediction is in a separate project. Please refer to
 singularity exec --nv adaptplm_v1_0_0.sif \
 enzrxn-downstream extract-attention-order-per-head --data-path "build/rxnaamapper_sequences_1024.txt" --model-path "<path-to-the-adapted-esm-model>/esm" --output-dir "build/esm_attention/esm_attention_<model-name>"
 ```
+
+```shell
+python enzrxnpred2/downstream/bindingsite/score_binding_site_pred.py 250420_121652
+```
