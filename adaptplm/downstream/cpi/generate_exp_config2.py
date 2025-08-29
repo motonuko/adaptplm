@@ -146,8 +146,6 @@ def generate_all_config():
         (EnzActivityScreeningDataset.OLEA_FILTERED, 32, (1, 12)),
         (EnzActivityScreeningDataset.PHOSPHATASE_CHIRAL_FILTERED, 512, (3, 14)),
     ]
-    our_models = ['250407_182715']
-    our_models = ['250415_192945', '250415_221757']
     our_models = ['250420_121652']
     metric = "pr_auc"
     pred_model = "fnn"

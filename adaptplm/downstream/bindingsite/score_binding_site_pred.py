@@ -11,31 +11,6 @@ from adaptplm.downstream.bindingsite.external import get_overlap_and_penalty_sco
 from adaptplm.extension.bio_ext import calculate_crc64
 
 
-# def overlap_score(correct: List[List[int]], predicted: List[List[int]]) -> float:
-#     bunshi = 0
-#     bunbo = 0
-#     for a_s, b_s in correct:
-#         for a_p, b_p in predicted:
-#             bunshi += max(0, min(b_p, b_s) - max(a_p, a_s))
-#         bunbo += b_s - a_s
-#     return bunshi / bunbo
-#
-#
-# def false_positive_rate(correct: List[List[int]], predicted: List[List[int]]) -> float:
-#     bunshi = 0
-#     bunbo = 0
-#     for a_p, b_p in predicted:
-#         no_overlap = True
-#         for a_s, b_s in correct:
-#             is_overlapping = max(a_p, a_s) < min(b_p, b_s)
-#             if is_overlapping:
-#                 no_overlap = False
-#         factor = 1 if no_overlap else 0
-#         bunshi += factor * (b_p - a_p)
-#         bunbo += b_p - a_p
-#     return bunshi / bunbo
-
-
 # Reproducing the numbers from the paper + our own implementation (score calculation is done for each seq–rxn pair)
 def score(parent_path):
     df_pfam = pd.read_csv(DefaultPath().data_original_rxnaamapper_predictions / 'pfam.csv')
@@ -165,6 +140,7 @@ def score_random():
     print()
     print(fpr_result.mean())
 
+
 # not being used
 def score_per_sequence():
     df_pfam = pd.read_csv(DefaultPath().data_original_rxnaamapper_predictions / 'pfam.csv')
@@ -205,21 +181,9 @@ def score_per_sequence():
     print(result.mean())
 
 
-# def main():
-#     key = '241226_164549'
-#     score(DefaultPath().build / 'esm_attention' / f'esm_{key}')
-
 def main():
     parser = argparse.ArgumentParser(description='Run score with a specific key')
     parser.add_argument('model', type=str, help='The key to identify the file', default='250420_121652')
     args = parser.parse_args()
     model = args.model
     score(DefaultPath().build / 'esm_attention' / f'esm_{model}')
-
-
-if __name__ == '__main__':
-    main()
-    # score(DefaultPath().build / 'esm_attention' / f'esm_250420_121652')
-    # print()
-    # score_random()
-    # score_per_sequence()

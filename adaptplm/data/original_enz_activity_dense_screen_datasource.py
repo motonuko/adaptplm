@@ -7,6 +7,7 @@ from rdkit import Chem
 
 
 class EnzActivityScreeningDataset(Enum):
+    # Original datasets
     # See the following link to check the corresponding files
     # https://github.com/samgoldman97/enz-pred/blob/main/make_figs/dataset_summary.py#L36
     DUF = "duf"  # BKACE  # 2,737
@@ -27,8 +28,9 @@ class EnzActivityScreeningDataset(Enum):
 
     # Instead of using MSA result, here, we create renewed dataset with using sequences fetched from UniParc .
     # ([1] uses MSA result -> https://github.com/samgoldman97/enzyme-datasets/blob/main/bin/reformat_duf.py#L37 )
-    DUF_SEQ_RETRIEVED = "duf_seq_retrieved"
+    # DUF_SEQ_RETRIEVED = "duf_seq_retrieved"
 
+    # Filtered datasets for enzyme-substrate activity prediction task
     DUF_FILTERED = "duf_filtered"
     ESTERASE_FILTERED = "esterase_filtered"
     GT_ACCEPTORS_CHIRAL_FILTERED = "gt_acceptors_chiral_filtered"

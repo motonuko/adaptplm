@@ -6,7 +6,7 @@ from adaptplm.data.enz_seq_rxn_datasource import load_enz_seq_rxn_datasource
 
 class EnzSeqRxnDatasourceTestCase(unittest.TestCase):
     def setUp(self):
-        self.data_path = DefaultPath().data_dataset_raw.joinpath('enzsrp.csv')
+        self.data_path = DefaultPath().data_dataset_raw.joinpath('enzsrp_full.csv')
 
     def test_load(self):
         df = load_enz_seq_rxn_datasource(self.data_path)

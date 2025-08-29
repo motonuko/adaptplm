@@ -18,6 +18,7 @@ def sort_key(name):
 
 
 def split_active_site(df):
+    # NOTE: 'Active Site' strategy is not used in the paper
     starts_with_a = df['condition'].str.startswith('Active Site')
     df_not_a = df[~starts_with_a].reset_index(drop=True)  # NOT starting from "a"
     df_a = df[starts_with_a].reset_index(drop=True)  # starting from "a"

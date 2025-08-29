@@ -14,25 +14,13 @@ from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActiv
 from adaptplm.viz.cpi_result.boxplot_utils import split_active_site, sort_key
 
 
-def xx2(df):
-    # mapping_dict = {
-    #     'Mean': '',
-    #     'Masked LM 250420_121652': 'ESM-1b$_{EnzSRP}$',
-    #     'Precomputed': 'ESM-1b',
-    # }
-    # df['label'] = df['condition'].map(mapping_dict)
-    # df['label'] = df['condition']
-    # df = df.dropna(subset=['label'])
-
+def split_into_roc_and_pr_tables(df):
     df_mean_and_mlm, _ = split_active_site(df)
-    # min，max
-    # hoge = min_max(df_active_site, 'roc_auc_mean')
-    # huga = min_max(df_active_site, 'pr_auc_mean')
-    df_duf_roc = pd.concat([df_mean_and_mlm])
-    df_duf_pr = pd.concat([df_mean_and_mlm])
-    df_duf_roc = df_duf_roc.sort_values(by="condition", key=lambda x: x.map(sort_key)).reset_index(drop=True)
-    df_duf_pr = df_duf_pr.sort_values(by="condition", key=lambda x: x.map(sort_key)).reset_index(drop=True)
-    return df_duf_roc, df_duf_pr
+    df_roc = pd.concat([df_mean_and_mlm])
+    df_pr = pd.concat([df_mean_and_mlm])
+    df_roc = df_roc.sort_values(by="condition", key=lambda x: x.map(sort_key)).reset_index(drop=True)
+    df_pr = df_pr.sort_values(by="condition", key=lambda x: x.map(sort_key)).reset_index(drop=True)
+    return df_roc, df_pr
 
 
 def run_t_test(df, column):
@@ -101,7 +89,7 @@ def main(drawing_models: List[str]):
             continue
         df = pd.read_pickle(path)
         try:
-            df_roc, df_pr = xx2(df)
+            df_roc, df_pr = split_into_roc_and_pr_tables(df)
             results_roc.append(df_roc)
             results_pr.append(df_pr)
         except Exception as e:
