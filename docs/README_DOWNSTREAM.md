@@ -71,6 +71,12 @@ enzrxn-downstream compute-sentence-embedding2 --data-path "data/dataset/processe
 
 ### 4. Activity Classification for Family-wide Enzyme-substrate Specificity Screening Datasets
 
+Create filtered enzyme-substrate Specificity Screening Datasets
+
+```shell
+python adaptplm/preprocess/cdhit2/cpi.py
+```
+
 
 ```shell
 singularity exec --nv adaptplm_v1_0_0.sif \
