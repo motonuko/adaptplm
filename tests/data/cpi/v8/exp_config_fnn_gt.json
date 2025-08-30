@@ -1,0 +1,106 @@
+{
+  "protein_feat_config": {
+    "model_name": "facebook/esm2_t6_8M_UR50D",
+    "embedding_type": "average",
+    "embedding_params": {}
+  },
+  "molecule_feat_config": {
+    "name": "morgan",
+    "params": {
+      "length": 2048
+    }
+  },
+  "model": "fnn",
+  "class_weight": "balanced",
+  "n_inner_folds": 3,
+  "n_outer_folds": 5,
+  "random_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "objective": "roc-auc",
+  "n_steps": 50,
+  "eval_steps": 10,
+  "n_jobs": 1,
+  "use_cpu": true,
+  "optim_metric": "roc_auc",
+  "optim_params": [
+    {
+      "name": "n_hidden_layers",
+      "type": "int",
+      "min": 1,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "name": "hidden_dim",
+      "type": "int",
+      "min": 16,
+      "max": 512,
+      "step": 16
+    },
+    {
+      "name": "learning_rate",
+      "type": "float",
+      "min": 1e-4,
+      "max": 0.02
+    },
+    {
+      "name": "dropout_rate",
+      "type": "float",
+      "min": 0.1,
+      "max": 0.5
+    },
+    {
+      "name": "weight_decay",
+      "type": "float",
+      "min": 1e-6,
+      "max": 1e-2
+    },
+    {
+      "name": "batch_size",
+      "type": "categorical",
+      "candidates": [
+        128
+      ]
+    }
+  ],
+  "optuna_n_trials": 2,
+  "optuna_n_startup_trials": 1,
+  "data": "gt_acceptors_chiral",
+  "filter_seq_list": [
+    "11EDB18C8381477A",
+    "10AB8E66C332FA92",
+    "AAC9727F48C069A9",
+    "73C4EDBFD5050067",
+    "5809F2E9782DEA56",
+    "764C04794420658C",
+    "FAE0484361DD072A",
+    "21283D9B69C4C97C",
+    "EE46B76C4BD14745",
+    "5766E0877F0A1583",
+    "BEAFE2D5C86F8920",
+    "339E81BA5BAD55FC",
+    "293587240C506F6A",
+    "D8C5A0C2DBA6883D",
+    "E9DEAD19E4E05188",
+    "C84091DBE664ADD9",
+    "67E5A9053A0DF25F",
+    "60BF6A70A3D17ABC",
+    "2CCE13AFFEF54E77",
+    "CE3F8622946E4C78"
+  ],
+  "eval_metrics": [
+    "roc_auc",
+    "pr_auc"
+  ],
+  "ensemble_top_k": 1
+}

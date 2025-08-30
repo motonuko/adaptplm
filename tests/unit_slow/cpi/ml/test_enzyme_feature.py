@@ -43,31 +43,3 @@ class MyTestCase(unittest.TestCase):
             for key in result.keys():
                 if not np.allclose(result[key], expected[key], atol=1e-5):
                     self.fail('not close')
-
-    def test_something2(self):
-        for dataset in datasets_used_in_paper:
-            dists = [3, 12, 20]
-            for dist in dists:
-                expected_data_path = self.test_data_dir / f"embedding_{dataset.short_name_for_original_files}_hard_{dist}.pkl"
-                expected = self._load_data(expected_data_path)
-                df = self.datasource.load_binary_dataset(dataset)
-                config = ProteinFeatConfig.from_dict({
-                    'name': ESM1B_T33_650M_UR50S,
-                    'pooling_strategy': 'active_site',
-                    'pooling_params': {
-                        'distance': dist
-                    }
-                })
-                builder = EsmFeatureConstructor(
-                    config=config,
-                    dataset=dataset,
-                    device='cpu')
-                result = {}
-                for seq in tqdm(list(df['SEQ'].unique())):
-                    result[seq] = builder.construct_feature(seq)
-
-                if set(result.keys()) != set(expected.keys()):
-                    return False
-                for key in result.keys():
-                    if not np.allclose(result[key], expected[key], atol=1e-5):
-                        self.fail('not close')

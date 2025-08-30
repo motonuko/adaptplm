@@ -14,7 +14,6 @@ data/server_exp
 *.env
 enzrxnpred.egg-info
 /bin/local/
-tests/data
 adaptplm.egg-info
 bin/local
 local
