@@ -189,9 +189,12 @@ def compute_clustering_scores(seq_ec_file_path: str, embedding_files: List[str])
             return ""
         return f"{x:.{sig}g}"
 
+    out_dir = DefaultPath().build / 'embed'
+    out_dir.mkdir(parents=True, exist_ok=True)
     df = df.apply(lambda col: col.map(format_sigfig))
-    df.to_csv(embed_files[0].parent / 'summary.csv')
-    df.to_latex(embed_files[0].parent / 'summary.tex')
+    df.to_csv(out_dir / 'summary.csv')
+    df.to_latex(out_dir / 'summary.tex')
+    print(f"The result is output under {out_dir}")
 
 
 #

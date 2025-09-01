@@ -79,23 +79,15 @@ def load_exp_result_paths(exp_path_map_file, exp_base_path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--models', nargs='+', default=['250420_121652'])
+    parser.add_argument('--result-path', nargs=None, type=Path, required=True, help="Path to the results")
     args = parser.parse_args()
 
     v = get_package_major_version()
     v_int = int(get_package_major_version(prefix_v=False))
     for d in datasets_used_in_our_paper:
-        if v_int >= 11:
-            result_path = DefaultPath().data_dir / 'server_exp' / 'cpi' / v / d.value
-            if not result_path.exists():
-                print(f'Skipped {result_path.as_posix()}')
-                continue
-            results = [p for p in result_path.iterdir() if p.is_dir()]
-        else:
-            map_file = DefaultPath().data_dataset_dir / 'viz' / v / f"cv_trial_ids_{d.value}.yaml"
-            if not map_file.exists():
-                print(f'Skipped {map_file.as_posix()}')
-                continue
-            results = load_exp_result_paths(
-                exp_path_map_file=map_file,
-                exp_base_path=DefaultPath().data_dir.joinpath('server_exp', 'cpi', 'cpi', d.value))
+        result_path = args.result_path / d.value
+        if not result_path.exists():
+            print(f'Skipped {result_path.as_posix()}')
+            continue
+        results = [p for p in result_path.iterdir() if p.is_dir()]
         summarize_results(d, results, save_dir=DefaultPath().build / 'fig' / v, models=args.models)

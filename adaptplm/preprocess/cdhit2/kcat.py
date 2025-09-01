@@ -4,7 +4,7 @@ from adaptplm.extension.bio_ext import calculate_crc64
 from adaptplm.preprocess.cdhit2.check_overlap2 import filter_out_overlap_sequences
 
 
-def create_filtered_kcat_test():
+def create_filtered_kcat_test_sequence_list():
     df = load_kcat_df(DefaultPath().original_kcat_test_pkl)
     df['seq_hash'] = df['Sequence'].apply(calculate_crc64)
     seq_names = filter_out_overlap_sequences(key='enzsrp_full_train__esp__kcat', filtering_target='kcat',
@@ -13,8 +13,8 @@ def create_filtered_kcat_test():
     df = df.drop(columns=['seq_hash'])
     parent_dir = DefaultPath().build / 'kcat'
     parent_dir.mkdir(parents=True, exist_ok=True)
-    df.to_pickle(parent_dir / 'test_df_kcat_filtered.pkl')
+    df[['Sequence ID']].to_csv(parent_dir / 'test_df_kcat_filtered_sequence_ids.csv', index=False)
 
 
 if __name__ == '__main__':
-    create_filtered_kcat_test()
+    create_filtered_kcat_test_sequence_list()

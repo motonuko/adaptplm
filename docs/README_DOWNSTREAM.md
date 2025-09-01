@@ -98,6 +98,12 @@ singularity exec --nv adaptplm_v1_0_0.sif \
 enzrxn-downstream compute-sentence-embedding --data-path "data/dataset/processed/kcat/kcat_sequences.txt" --model-path "<path-to-the-adapted-esm-model>/esm" --output-csv "build/kcat/kcat_sequence_embeddings_<model-name>.csv" --batch-size 16
 ```
 
+Generate a filtered list of kcat test sequence IDs that includes only sequences not similar to either the ESP fine-tuning training set or the EnzSRP training set.
+
+```shell
+python adaptplm/preprocess/cdhit2/kcat.py
+```
+
 The execution code for Kcat prediction is in a separate project. Please refer to https://github.com/motonuko/kcat_prediction_slim
 
 ### 6. Binding site prediction
