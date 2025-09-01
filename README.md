@@ -20,14 +20,6 @@ pip install build
 python -m build
 ```
 
-### Set up scripts
-
-We use a python file from https://github.com/samgoldman97/enz-pred/ .
-Please set up the python script by running the following script.
-
-```shell
-bin/set_up_parse_utils.sh
-```
 
 #### 2. Set up the training environment
 
@@ -58,4 +50,3 @@ Please refer to the appropriate document below according to your task.
     - For domain adaptation of ESM model with EnzSRP dataset.
 - [README_DOWNSTREAM.md](docs/README_DOWNSTREAM.md)
     - For conducting downstream task experiments.
-
