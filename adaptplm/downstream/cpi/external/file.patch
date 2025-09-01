@@ -1,0 +1,50 @@
+--- parse_utils.py	2025-09-01 12:26:56
++++ ./adaptplm/downstream/cpi/external/parse_utils.py	2025-09-01 12:46:35
+@@ -5,15 +5,18 @@
+ """
+ 
+ import re
+-import numpy as np
+ from collections import defaultdict
+-from scipy import sparse
+-
+ from itertools import groupby
+ from typing import Iterable, Tuple
++
++import numpy as np
++from scipy import sparse
+ from tqdm import tqdm
+ 
+ 
++# Original: https://github.com/samgoldman97/enz-pred/
++# Little changes are added. See .patch file for the details.
++
+ def fasta_iter(fasta_name: str) -> Iterable[Tuple[str, str]]:
+     """fasta_iter.
+ 
+@@ -196,7 +199,7 @@
+ 
+     """
+ 
+-    tuple_regex = "\(([0-9]*),\s*'([A-Z,?])'\)"
++    tuple_regex = r"\(([0-9]*),\s*'([A-Z,?])'\)"
+ 
+     with open(file_name, "r") as fp:
+         active_pos = []
+@@ -266,11 +269,11 @@
+ 
+ 
+ def extract_pool_residue_dict(
+-    seq_msa: str,
+-    ref_seq: str,
+-    pool_residues: list,
+-    rand: bool = False,
+-    pool_num: int = 1,
++        seq_msa: str,
++        ref_seq: str,
++        pool_residues: list,
++        rand: bool = False,
++        pool_num: int = 1,
+ ) -> dict:
+     """extract_pool_residue_dict.
+ 
