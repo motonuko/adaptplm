@@ -55,8 +55,10 @@ def draw(ax, df, column, y_label, y_lim, title_map, colors):
 
     all_values = [v for sublist in df[column] for v in sublist]
     unit = 0.1
-    ymin = np.floor(min(all_values) / unit) * unit
-    ymax = np.ceil(max(all_values) / unit) * unit
+    # ymin = np.floor(min(all_values) / unit) * unit
+    # ymax = np.ceil(max(all_values) / unit) * unit
+    ymin = 0.25
+    ymax = 0.90
     range = ymax - ymin
     y_tick_interval = 0.02 if range <= 0.1 else 0.05
     ax.set_ylim(ymin, ymax)
@@ -138,8 +140,8 @@ def main(drawing_models: List[str]):
     # plt.tight_layout()
     # plt.show()
     save_dir = DefaultPath().build / 'fig' / ver
-    plt.savefig(save_dir / f"cpi_summary.png")
-    plt.savefig(save_dir / f"cpi_summary.pdf", format="pdf", dpi=300)
+    plt.savefig(save_dir / f"cpi_summary_fixed_y.png")
+    plt.savefig(save_dir / f"cpi_summary_fixed_y.pdf", format="pdf", dpi=300)
     plt.show()
     plt.close()
 
