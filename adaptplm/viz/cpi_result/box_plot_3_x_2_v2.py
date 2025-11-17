@@ -6,7 +6,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib import ticker
-from scipy.stats import ttest_ind
+from scipy.stats import wilcoxon
+import itertools
+import numpy as np
 
 from adaptplm.core.default_path import DefaultPath
 from adaptplm.core.package_version import get_package_major_version
@@ -14,26 +16,40 @@ from adaptplm.data.original_enz_activity_dense_screen_datasource import EnzActiv
 from adaptplm.viz.cpi_result.boxplot_utils import split_active_site, sort_key
 
 
-def split_into_roc_and_pr_tables(df):
+def xx2(df):
+    # mapping_dict = {
+    #     'Mean': '',
+    #     'Masked LM 250420_121652': 'ESM-1b$_{EnzSRP}$',
+    #     'Precomputed': 'ESM-1b',
+    # }
+    # df['label'] = df['condition'].map(mapping_dict)
+    # df['label'] = df['condition']
+    # df = df.dropna(subset=['label'])
+
     df_mean_and_mlm, _ = split_active_site(df)
-    df_roc = pd.concat([df_mean_and_mlm])
-    df_pr = pd.concat([df_mean_and_mlm])
-    df_roc = df_roc.sort_values(by="condition", key=lambda x: x.map(sort_key)).reset_index(drop=True)
-    df_pr = df_pr.sort_values(by="condition", key=lambda x: x.map(sort_key)).reset_index(drop=True)
-    return df_roc, df_pr
+    # ラベル追加
+    # 最小，最大
+    # hoge = min_max(df_active_site, 'roc_auc_mean')
+    # huga = min_max(df_active_site, 'pr_auc_mean')
+    df_duf_roc = pd.concat([df_mean_and_mlm])
+    df_duf_pr = pd.concat([df_mean_and_mlm])
+    df_duf_roc = df_duf_roc.sort_values(by="condition", key=lambda x: x.map(sort_key)).reset_index(drop=True)
+    df_duf_pr = df_duf_pr.sort_values(by="condition", key=lambda x: x.map(sort_key)).reset_index(drop=True)
+    return df_duf_roc, df_duf_pr
 
-
-def run_t_test(df, column):
+def run_wilcoxon(df, column):
     print()
-    print(df['dataset'][0])
+    print(df['dataset'].iloc[0])
     conditions = df['condition'].unique()
     for cond1, cond2 in itertools.combinations(conditions, 2):
-        # collect data for each condition and concatenate into one array
+        # 各条件のデータを取得し、np.concatenateで一つの配列にまとめる
         data1 = np.concatenate(df[df['condition'] == cond1][column].values)
         data2 = np.concatenate(df[df['condition'] == cond2][column].values)
-        t_stat, p_value = ttest_ind(data1, data2, equal_var=False)
+        n = min(len(data1), len(data2))
+        stat, p_value = wilcoxon(data1[:n], data2[:n])
         result_emoji = "✅" if p_value < 0.05 else "❌"
-        print(f"{result_emoji} T-test between '{cond1}' and '{cond2}': t = {t_stat:.4f}, p = {p_value:.4e}")
+        print(f"{result_emoji} Wilcoxon between '{cond1}' and '{cond2}': stat = {stat:.4f}, p = {p_value:.4e}")
+
 
 def draw(ax, df, column, y_label, y_lim, title_map, colors):
     # labels = df['label']
@@ -55,10 +71,8 @@ def draw(ax, df, column, y_label, y_lim, title_map, colors):
 
     all_values = [v for sublist in df[column] for v in sublist]
     unit = 0.1
-    # ymin = np.floor(min(all_values) / unit) * unit
-    # ymax = np.ceil(max(all_values) / unit) * unit
-    ymin = 0.25
-    ymax = 0.90
+    ymin = np.floor(min(all_values) / unit) * unit
+    ymax = np.ceil(max(all_values) / unit) * unit
     range = ymax - ymin
     y_tick_interval = 0.02 if range <= 0.1 else 0.05
     ax.set_ylim(ymin, ymax)
@@ -78,7 +92,7 @@ def reshape_list(flat_list, n_rows, n_columns):
     return result
 
 
-# output a pdf
+# 描画用に事前につくったデータから 1 枚に全部のせした pdf を出力する
 def main(drawing_models: List[str]):
     ver = get_package_major_version()
     base_path = DefaultPath().build / 'fig' / ver
@@ -91,14 +105,14 @@ def main(drawing_models: List[str]):
             continue
         df = pd.read_pickle(path)
         try:
-            df_roc, df_pr = split_into_roc_and_pr_tables(df)
+            df_roc, df_pr = xx2(df)
             results_roc.append(df_roc)
             results_pr.append(df_pr)
         except Exception as e:
             pass
 
     n_rows = 2
-    n_cols = 3
+    n_cols = 3  # 自動で計算したい．
     dfs = reshape_list(results_pr, n_rows, n_cols)
     columns = ['pr_auc_mean_per_trial'] * 3
     # load_font_ipaexg()
@@ -128,7 +142,7 @@ def main(drawing_models: List[str]):
                 draw(axs_row[i], df, columns[i], y_label='PR-AUC', y_lim=(0.2, 0.9),
                      title_map=title_map,
                      colors=colors)
-                run_t_test(df, columns[i])
+                run_wilcoxon(df, columns[i])
             else:
                 axs_row[i].set_visible(False)
     data_categories = ["ESM-1b$_\\mathrm{{MEAN}}$", "ESM-1b$_\\mathrm{{ESP}}$", "ESM-1b$_\\mathrm{{DA}}$"]
@@ -140,8 +154,8 @@ def main(drawing_models: List[str]):
     # plt.tight_layout()
     # plt.show()
     save_dir = DefaultPath().build / 'fig' / ver
-    plt.savefig(save_dir / f"cpi_summary_fixed_y.png")
-    plt.savefig(save_dir / f"cpi_summary_fixed_y.pdf", format="pdf", dpi=300)
+    plt.savefig(save_dir / f"cpi_summary.png")
+    plt.savefig(save_dir / f"cpi_summary.pdf", format="pdf", dpi=300)
     plt.show()
     plt.close()
 
