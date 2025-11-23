@@ -12,7 +12,7 @@ Stage: setup-enzrxnpred-env
 
 %files
     requirements_for_singularity.txt /requirements_for_singularity.txt
-    dist/adaptplm-1.0.0-py3-none-any.whl /adaptplm-1.0.0-py3-none-any.whl
+    dist/adaptplm-1.1.0-py3-none-any.whl /adaptplm-1.1.0-py3-none-any.whl
 
 %post
     # cd adaptplm
@@ -39,7 +39,7 @@ Stage: setup-enzrxnpred-env
     python3 -m pip install --upgrade pip
     python3 -m pip install --no-cache-dir torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu118
     python3 -m pip install --no-cache-dir -r /requirements_for_singularity.txt
-    python3 -m pip install --no-cache-dir /adaptplm-1.0.0-py3-none-any.whl
+    python3 -m pip install --no-cache-dir /adaptplm-1.1.0-py3-none-any.whl
 
 
 # Runs at `instance start` is called
