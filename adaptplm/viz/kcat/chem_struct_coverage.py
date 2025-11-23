@@ -96,15 +96,15 @@ def load_esp_train_mols():
     return [mol_from_inchi_safe(inchi) for inchi in inches]
 
 
-def deduplicate_mols_by_inchikey(mol_list):
+def deduplicate_mols_by_canonical_smiles(mol_list):
     seen = set()
     unique_mols = []
     for mol in mol_list:
         if mol is None:
             continue
-        inchikey = Chem.MolToInchiKey(mol)
-        if inchikey not in seen:
-            seen.add(inchikey)
+        smiles = Chem.MolToSmiles(mol)
+        if smiles not in seen:
+            seen.add(smiles)
             unique_mols.append(mol)
     return unique_mols
 
@@ -118,7 +118,7 @@ def max_similarities(query_fps, ref_fps):
 
 
 # def mols_to_ecfp4(mols, radius=2, nBits=1024):
-def mols_to_ecfp4(mols, radius=3, nBits=2048):
+def mols_to_ecfp4(mols, radius=2, nBits=2048):
     gen = rdFingerprintGenerator.GetMorganGenerator(radius=radius, fpSize=nBits)
     return [gen.GetFingerprint(m) for m in mols]  # compare_coverage
 
@@ -148,9 +148,11 @@ def main():
     mols_esp = clean_mols(mols_esp)
 
     # drop duplicates
-    mols_kcat = deduplicate_mols_by_inchikey(mols_kcat)
-    mols_enzsrp = deduplicate_mols_by_inchikey(mols_enzsrp)
-    mols_esp = deduplicate_mols_by_inchikey(mols_esp)
+    mols_kcat = deduplicate_mols_by_canonical_smiles(mols_kcat)
+    mols_enzsrp = deduplicate_mols_by_canonical_smiles(mols_enzsrp)
+    mols_esp = deduplicate_mols_by_canonical_smiles(mols_esp)
+
+    print(f"kcat:{len(mols_kcat)}, enzsrp:{len(mols_enzsrp)}, esp:{len(mols_esp)}")
 
     # compute fingerprint
     fps_kcat = mols_to_ecfp4(mols_kcat)
@@ -168,17 +170,31 @@ def main():
 
     # draw scatter
     plt.figure(figsize=(6, 6))
-    plt.scatter(sims_kcat_vs_enzsrp, sims_kcat_vs_esp, alpha=0.6)
-    plt.xlabel("Nearest neighbor similarity (1 vs 2)")
-    plt.ylabel("Nearest neighbor similarity (1 vs 3)")
-    plt.title("Coverage comparison: Dataset 2 vs 3")
-    plt.plot([0, 1], [0, 1], 'k--', alpha=0.5)
-    plt.grid(True)
-    plt.show()
+    # plt.scatter(sims_kcat_vs_enzsrp, sims_kcat_vs_esp, alpha=0.6)
+    plt.scatter(
+        sims_kcat_vs_enzsrp,
+        sims_kcat_vs_esp,
+        alpha=0.5,
+        s=15,
+        edgecolor="none"
+    )
+    # plt.xlabel("Nearest neighbor similarity for each molecule in turnover number dataset (EnzSRP)")
+    # plt.ylabel("Nearest neighbor similarity for each molecule in turnover number dataset (ESP)")
+    plt.xlabel("Max ECFP similarity to EnzSRP molecules", fontsize=11)
+    plt.ylabel("Max ECFP similarity to ESP molecules", fontsize=11)
+    # plt.title("Coverage comparison: Dataset EnzSRP training set vs ESP")
+    plt.plot([0, 1], [0, 1], 'k--', linewidth=1, alpha=0.6)
+    # plt.plot([0, 1], [0, 1], 'k--', alpha=0.5)
+    # plt.grid(True)
+    plt.grid(True, linestyle="--", alpha=0.4)
+    # plt.show()
+    save_dir = DefaultPath().build / 'fig'
+    plt.savefig(save_dir / f"coverage.png")
+    plt.savefig(save_dir / f"coverage.pdf", format="pdf", dpi=300)
 
-    print(f"Win  : {win_count} / {total} ({win_count / total:.2%})")
+    print(f"EnzSRP Win  : {win_count} / {total} ({win_count / total:.2%})")
     print(f"Equal: {equal_count} / {total} ({equal_count / total:.2%})")
-    print(f"Lose : {lose_count} / {total} ({lose_count / total:.2%})")
+    print(f"ESP Win : {lose_count} / {total} ({lose_count / total:.2%})")
 
     return sims_kcat_vs_enzsrp, sims_kcat_vs_esp
 
