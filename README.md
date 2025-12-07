@@ -1,3 +1,12 @@
+## About
+
+This repository contains main pipelines for model training and data processing used in our study.
+Please cite the paper below when using this repository:
+
+
+> Tomoya Okuno, Naoaki Ono, Md. Altaf-Ul-Amin, Shigehiko Kanaya, Self-supervised domain adaptation of protein language model based solely on positive enzyme-reaction pairs, Computational and Structural Biotechnology Journal, 27, 2025, 5441-5449, ISSN 2001-0370, https://doi.org/10.1016/j.csbj.2025.11.045.
+
+
 ## Environment Setup
 
 Datasets for training were preprocessed on a laptop using a Conda environment.
